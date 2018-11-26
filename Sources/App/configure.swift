@@ -37,4 +37,8 @@ public func configure(
     databases.add(database: database, as: .psql)
     // 6
     services.register(databases)
+    
+    var migrations = MigrationConfig()
+    migrations.add(model: Acronym.self, database: .psql)
+    services.register(migrations)
 }
